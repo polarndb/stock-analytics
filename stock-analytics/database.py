@@ -15,11 +15,13 @@ def write_to_database(records):
     conn.commit()
     conn.close()
 
-def csv_to_database(file_path):
-    with open(file_path, 'r') as file:
-        reader = csv.reader(file)
-        records = [row for row in reader]
-        write_to_database(records)
+def csv_to_database(file):
+    file.seek(0)
+    content = file.read().decode('utf-8')
+    reader = csv.reader(content.splitlines())
+    reader = csv.reader(file)
+    records = [row for row in reader]
+    write_to_database(records)
 
 def print_database_content():
     # Connect to the SQLite database
