@@ -1,4 +1,5 @@
 import sqlite3
+import csv
 
 
 def write_to_database(records):
@@ -13,6 +14,12 @@ def write_to_database(records):
     # Commit the changes and close the connection
     conn.commit()
     conn.close()
+
+def csv_to_database(file_path):
+    with open(file_path, 'r') as file:
+        reader = csv.reader(file)
+        records = [row for row in reader]
+        write_to_database(records)
 
 def print_database_content():
     # Connect to the SQLite database
