@@ -10,3 +10,9 @@ Content-Type: text/csv
 
 < ${workspaceFolder}/test.csv
 --boundary--
+
+### new request
+
+
+GET http://localhost:5000/download-csv HTTP/1.1
+Accept: text/csv
