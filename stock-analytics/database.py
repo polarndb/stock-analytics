@@ -61,9 +61,9 @@ def read_database_content():
 
     # Fetch all the records
     records = c.fetchall()
-    print('records read from db')
-    for record in records:
-        print(record)
+
+    # Convert all items in each record to strings
+    records = [tuple(map(str, record)) for record in records]
 
     # Close the connection
     conn.close()

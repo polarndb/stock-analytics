@@ -32,7 +32,7 @@ def download_csv():
     data = read_database_content()
 
     # Convert data to CSV
-    csv_data = '\n'.join([','.join(map(str, row)) for row in data])
+    csv_data = '\n'.join([','.join(row) for row in data])
 
     # Create a generator for the data
     def generate():
